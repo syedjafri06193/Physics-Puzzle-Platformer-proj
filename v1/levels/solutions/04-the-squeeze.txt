@@ -1,0 +1,7 @@
+# Take hold of the blob and walk it into the gap. Shoving it at a run just
+# punts it over the wall, which is not a solution and not a puzzle.
+0.45  1.0
+0.30  0.0
+0.10  0.0  grab
+4.00  0.5  grab
+2.00  1.0

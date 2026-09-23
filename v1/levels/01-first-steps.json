@@ -1,0 +1,33 @@
+{
+  "id": "01-first-steps",
+  "name": "First Steps",
+  "format_version": 1,
+  "seed": 1001,
+
+  // Teaches: run, jump a gap, jump onto a ledge. No soft bodies at all.
+  // The first level of a physics puzzle game should not contain any
+  // physics puzzle — the player needs to know what the controls do before
+  // they can be asked to reason about anything.
+
+  "spawn": [60, 300],
+  "goal": [566, 240, 40, 40],
+  "camera_bounds": [0, 0, 640, 360],
+  "particle_budget": 1200,
+  "min_wall_thickness": 8,
+
+  "boxes": [
+    {"x": 0,   "y": 0,   "w": 16,  "h": 360},
+    {"x": 624, "y": 0,   "w": 16,  "h": 360},
+    {"x": 0,   "y": 320, "w": 200, "h": 40},
+    {"x": 260, "y": 320, "w": 364, "h": 40},
+    {"x": 460, "y": 280, "w": 164, "h": 40}
+  ],
+
+  "bodies": [],
+  "plates": [],
+  "doors": [],
+  "hazards": [],
+  "checkpoints": [
+    {"position": [300, 300], "radius": 24}
+  ]
+}

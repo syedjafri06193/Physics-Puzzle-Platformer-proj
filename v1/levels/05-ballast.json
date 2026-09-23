@@ -1,0 +1,58 @@
+{
+  "id": "05-ballast",
+  "name": "Ballast",
+  "format_version": 1,
+  "seed": 1005,
+
+  // Teaches: mass adds up. One blob is not heavy enough for the plate, so
+  // both go in the trough, and the door does not latch so neither can be
+  // taken out again. The trough is shallow — a step down, not a trap — and
+  // the blobs sit proud of it, so crossing means walking over the ballast
+  // you just laid.
+  //
+  // The second blob starts in the trough with the door still shut. That
+  // is the level explaining itself: the player sees weight on the plate
+  // and a door that has not opened, which asks the question the level
+  // answers, instead of making them discover it by failing.
+  //
+  // Two earlier drafts are worth recording, because both were geometry
+  // problems wearing a puzzle's clothes. A version with two pits and a
+  // plate in each made the player drag the second blob across the first
+  // pit, over a gap they cannot stand on while holding something. A
+  // version with the plate flat on the open floor let the player shove the
+  // blobs straight off it on the way past.
+
+  "spawn": [60, 300],
+  "goal": [568, 276, 40, 44],
+  "camera_bounds": [0, 0, 640, 360],
+  "particle_budget": 1200,
+  "min_wall_thickness": 8,
+
+  "boxes": [
+    {"x": 0,   "y": 0,   "w": 16,  "h": 360},
+    {"x": 624, "y": 0,   "w": 16,  "h": 360},
+    {"x": 0,   "y": 320, "w": 300, "h": 40},
+    {"x": 300, "y": 344, "w": 96,  "h": 16},
+    {"x": 396, "y": 320, "w": 228, "h": 40},
+    {"x": 520, "y": 180, "w": 16,  "h": 140, "door": 0}
+  ],
+
+  "bodies": [
+    {"id": 0, "type": "pressure", "position": [200, 288], "radius": 21, "count": 18,
+     "pressure": 1.0, "mass": 1.0},
+    {"id": 1, "type": "pressure", "position": [370, 316], "radius": 21, "count": 18,
+     "pressure": 1.0, "mass": 1.0}
+  ],
+
+  "plates": [
+    {"id": 0, "region": [300, 324, 96, 20], "threshold": 14.0,
+     "player_counts": false, "opens": [0]}
+  ],
+
+  "doors": [
+    {"id": 0, "latching": false, "plates": [0]}
+  ],
+
+  "hazards": [],
+  "checkpoints": []
+}

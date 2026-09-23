@@ -1,0 +1,13 @@
+# One blob is already on the plate and the door is still shut. Fetch the
+# other one, then jump the trough rather than wading through it — the
+# ballast only holds the door open while it stays where you put it.
+0.55  1.0
+0.30  0.0
+0.10  0.0  grab
+0.92  0.5  grab
+1.30  0.0
+0.55 -1.0
+0.15  0.0
+0.52  1.0
+0.30  1.0  jump
+1.80  1.0

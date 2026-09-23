@@ -1,0 +1,75 @@
+name: CI
+
+# The replay suite is the point of this workflow (design doc 15.2). Tests
+# catch a broken solver; the replay suite catches a solver that still works
+# and a game that is no longer playable, which is the failure that actually
+# ships.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        working-directory: v1
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        working-directory: v1
+        run: cmake --build build -j
+
+      - name: Unit tests
+        working-directory: v1
+        run: ./build/ppp_tests
+
+      - name: Validate levels and run every recorded solution
+        working-directory: v1
+        # --twice runs each replay in two separate processes and requires
+        # identical results. That is doc 15.3's fresh-process check, and it
+        # cannot live inside the test binary: a test that re-runs itself to
+        # look for hidden global state carries the global state with it.
+        run: python3 tools/run_replays.py --twice
+
+      - name: Render each level for review
+        working-directory: v1
+        run: |
+          mkdir -p artifacts
+          for level in levels/*.json; do
+            name=$(basename "$level" .json)
+            ./build/pppsim render "$level" \
+              --script "levels/solutions/$name.txt" \
+              -o "artifacts/$name.svg"
+          done
+
+      # A level review on a pull request should not need a checkout and a
+      # build. These are the same SVGs `pppsim render` writes locally.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: level-renders
+          path: v1/artifacts/*.svg
+
+  compilers:
+    # The strict floating-point flags are part of the contract, so both
+    # compilers have to accept them and both have to pass. A replay recorded
+    # under one and verified under the other would be meaningless — that is
+    # why determinism is scoped to one machine and one build (doc 6.3) — so
+    # each job records and verifies within itself.
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler: [g++, clang++]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and test
+        working-directory: v1
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_CXX_COMPILER=${{ matrix.compiler }}
+          cmake --build build -j
+          ./build/ppp_tests

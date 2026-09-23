@@ -1,0 +1,46 @@
+{
+  "id": "04-the-squeeze",
+  "name": "The Squeeze",
+  "format_version": 1,
+  "seed": 1004,
+
+  // Teaches: the blob deforms. This is the one level that could not exist
+  // with rigid bodies — the gap under the wall is 30 units and the blob is
+  // 45 across, so it has to be squashed through, and there is no way to
+  // rotate or wedge a rigid object past that.
+  //
+  // The blob's pressure is 0.9 rather than 1.05: an under-inflated body
+  // gives way more readily, and a level whose whole point is deformation
+  // should not also be a level about shoving very hard.
+
+  "spawn": [60, 300],
+  "goal": [580, 276, 40, 44],
+  "camera_bounds": [0, 0, 640, 360],
+  "particle_budget": 1200,
+  "min_wall_thickness": 8,
+
+  "boxes": [
+    {"x": 0,   "y": 0,   "w": 16,  "h": 360},
+    {"x": 624, "y": 0,   "w": 16,  "h": 360},
+    {"x": 0,   "y": 320, "w": 640, "h": 40},
+    {"x": 300, "y": 0,   "w": 16,  "h": 290},
+    {"x": 540, "y": 180, "w": 16,  "h": 140, "door": 0}
+  ],
+
+  "bodies": [
+    {"id": 0, "type": "pressure", "position": [200, 288], "radius": 22, "count": 18,
+     "pressure": 0.9, "mass": 1.0}
+  ],
+
+  "plates": [
+    {"id": 0, "region": [420, 300, 64, 20], "threshold": 4.0,
+     "player_counts": false, "opens": [0]}
+  ],
+
+  "doors": [
+    {"id": 0, "latching": true, "plates": [0]}
+  ],
+
+  "hazards": [],
+  "checkpoints": []
+}

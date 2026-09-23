@@ -1,0 +1,48 @@
+{
+  "id": "03-stepping-stone",
+  "name": "Stepping Stone",
+  "format_version": 1,
+  "seed": 1003,
+
+  // Teaches: a soft body is something you can stand on, not just a weight.
+  //
+  // The gap is 122 units and a jump covers about 110, so it cannot be
+  // crossed. Nudged over the edge the blob settles on the spikes with its
+  // top a little above floor level, and one impossible jump becomes two
+  // easy ones. The checkpoint is before the gap because this is the first
+  // level where a mistake kills.
+  //
+  // Note the solid box under the spikes. Hazards are triggers, not
+  // geometry: the first draft had spikes and nothing else at the bottom of
+  // the gap, and the blob fell straight through them and out of the world.
+
+  "spawn": [60, 300],
+  "goal": [568, 276, 40, 44],
+  "camera_bounds": [0, 0, 640, 360],
+  "particle_budget": 1200,
+  "min_wall_thickness": 8,
+
+  "boxes": [
+    {"x": 0,   "y": 0,   "w": 16,  "h": 360},
+    {"x": 624, "y": 0,   "w": 16,  "h": 360},
+    {"x": 0,   "y": 320, "w": 208, "h": 40},
+    {"x": 208, "y": 344, "w": 122, "h": 16},
+    {"x": 330, "y": 320, "w": 294, "h": 40}
+  ],
+
+  "bodies": [
+    {"id": 0, "type": "pressure", "position": [140, 288], "radius": 22, "count": 18,
+     "pressure": 1.05, "mass": 1.0}
+  ],
+
+  "plates": [],
+  "doors": [],
+
+  "hazards": [
+    {"x": 208, "y": 334, "w": 122, "h": 10}
+  ],
+
+  "checkpoints": [
+    {"position": [170, 300], "radius": 26}
+  ]
+}

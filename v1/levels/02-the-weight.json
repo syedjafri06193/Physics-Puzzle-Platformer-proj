@@ -1,0 +1,50 @@
+{
+  "id": "02-the-weight",
+  "name": "The Weight",
+  "format_version": 1,
+  "seed": 1002,
+
+  // Teaches: grab, drag, pressure plate, door.
+  //
+  // The plate is at the bottom of a pit and the door does not latch, so the
+  // blob has to be left there. Both details are the level arguing with an
+  // earlier draft of itself: with a latching door the player just dragged
+  // the blob through the open doorway and never let go, and with the plate
+  // flat on the floor the player shoved the blob off it on the way past.
+  //
+  // The plate ignores the player's own weight, so standing on it is not an
+  // answer either. The only thing heavy enough is the blob, which is the
+  // one sentence this level exists to say.
+
+  "spawn": [60, 300],
+  "goal": [576, 276, 40, 44],
+  "camera_bounds": [0, 0, 640, 360],
+  "particle_budget": 1200,
+  "min_wall_thickness": 8,
+
+  "boxes": [
+    {"x": 0,   "y": 0,   "w": 16,  "h": 360},
+    {"x": 624, "y": 0,   "w": 16,  "h": 360},
+    {"x": 0,   "y": 320, "w": 396, "h": 40},
+    {"x": 396, "y": 344, "w": 64,  "h": 16},
+    {"x": 460, "y": 320, "w": 164, "h": 40},
+    {"x": 540, "y": 180, "w": 16,  "h": 140, "door": 0}
+  ],
+
+  "bodies": [
+    {"id": 0, "type": "pressure", "position": [170, 288], "radius": 22, "count": 18,
+     "pressure": 1.05, "mass": 1.0}
+  ],
+
+  "plates": [
+    {"id": 0, "region": [396, 326, 64, 18], "threshold": 4.0,
+     "player_counts": false, "opens": [0]}
+  ],
+
+  "doors": [
+    {"id": 0, "latching": false, "plates": [0]}
+  ],
+
+  "hazards": [],
+  "checkpoints": []
+}

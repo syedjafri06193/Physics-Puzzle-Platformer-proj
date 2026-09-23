@@ -1,0 +1,64 @@
+; Godot project file.
+;
+; The physics rate here is cosmetic: the simulation runs at its own fixed
+; 120 Hz inside the GDExtension (doc 4.2), driven by PppSim.advance() from
+; _process. Godot's own physics tick is not used at all, because a solver
+; that takes its timestep from the engine is a solver whose recorded
+; replays stop reproducing when someone changes a project setting.
+
+config_version=5
+
+[application]
+config/name="Physics Puzzle Platformer"
+run/main_scene="res://scenes/game.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+
+[autoload]
+PppSteam="*res://scripts/steam.gd"
+
+[display]
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[input]
+move_left={
+"deadzone": 0.2,
+"events": []
+}
+move_right={
+"deadzone": 0.2,
+"events": []
+}
+move_up={
+"deadzone": 0.2,
+"events": []
+}
+move_down={
+"deadzone": 0.2,
+"events": []
+}
+jump={
+"deadzone": 0.2,
+"events": []
+}
+grab={
+"deadzone": 0.2,
+"events": []
+}
+restart={
+"deadzone": 0.2,
+"events": []
+}
+debug_slowmo={
+"deadzone": 0.5,
+"events": []
+}
+debug_step={
+"deadzone": 0.5,
+"events": []
+}
+
+[rendering]
+textures/canvas_textures/default_texture_filter=0
