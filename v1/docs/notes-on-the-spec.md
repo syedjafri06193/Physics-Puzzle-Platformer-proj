@@ -1,6 +1,6 @@
 # Notes on the spec
 
-Places where `Documentation/README.md` is wrong, underspecified, or right in
+Places where `docs/design.md` is wrong, underspecified, or right in
 a way that only becomes clear once the code exists. Each entry says what the
 document says, what actually happens, and what this implementation does.
 

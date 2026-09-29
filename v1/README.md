@@ -3,7 +3,7 @@
 A 2D puzzle platformer built on a custom Verlet soft-body solver: a rigid
 player pushing, dragging, squeezing and standing on deformable blobs.
 
-The implementation of the design in [`../Documentation/README.md`](../Documentation/README.md).
+The implementation of the design in [`../docs/design.md`](../docs/design.md).
 Where this deviates from that document, [`docs/notes-on-the-spec.md`](docs/notes-on-the-spec.md)
 says where and why — including one place the document's reference
 implementation injects energy and cannot settle.
