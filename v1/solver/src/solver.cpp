@@ -766,7 +766,7 @@ void Solver::Step(float dt) {
         SweepCollisions();
 
         // Fixed iteration count and fixed order: both are part of the
-        // physics contract (docs/physics-contract.md). Changing either
+        // physics contract (1—Documentation/v1/physics-contract.md). Changing either
         // changes the simulation and invalidates every recorded replay, so
         // the regression suite has to run before this line is touched.
         BuildGrid();

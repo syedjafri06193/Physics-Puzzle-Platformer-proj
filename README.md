@@ -1,5 +1,7 @@
 # Physics Puzzle Platformer
 
+[![CI](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/actions/workflows/ci.yml/badge.svg)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/actions/workflows/ci.yml)
+
 A 2D puzzle platformer built on a custom Verlet soft-body solver: a rigid
 player pushing, dragging, squeezing and standing on deformable blobs. Targets
 full gamepad support, Steam achievements, and 40 hand-authored levels.
@@ -7,7 +9,7 @@ full gamepad support, Steam achievements, and 40 hand-authored levels.
 > **Status.** v1 ships the solver, the game layer, tooling and **5 levels**,
 > each with a recorded solution that CI replays bit-for-bit. The path to 40
 > levels (and why level authoring is the real cost) is in
-> [`docs/design.md`](docs/design.md) §3.
+> [`1—Documentation/design.md`](1—Documentation/design.md) §3.
 
 ```
  solver/  (deterministic Verlet soft bodies, engine-free)
@@ -38,17 +40,17 @@ CI runs the same steps on every push and uploads an SVG render of each level
 .
 ├── README.md          ← you are here
 ├── .github/workflows/ ← CI: build, tests, replay suite, level renders, g++/clang++
-├── docs/
+├── 1—Documentation/   ← all documentation (index in its README)
 │   ├── design.md      ← full design guide (the spec code comments cite)
-│   └── design.pdf     ← same guide, PDF
+│   ├── design.pdf     ← same guide, PDF
+│   └── v1/            physics contract, determinism, level guidelines, spec errata
 └── v1/                ← first implementation
     ├── solver/        Verlet soft-body solver + tests
     ├── game/          player, level loading, scripting, replay
     ├── godot/         Godot 4 GDExtension project
     ├── levels/        5 levels (JSON) + scripted solutions
     ├── replays/       recorded replays checked in CI
-    ├── tools/         pppsim, SVG renderer, replay runner
-    └── docs/          physics contract, determinism, level guidelines, spec errata
+    └── tools/         pppsim, SVG renderer, replay runner
 ```
 
 Each `vN/` directory is a self-contained iteration. Start with

@@ -16,7 +16,7 @@ namespace ppp {
 
 /// Bump on ANY change that can affect simulation: stiffness, iteration
 /// count, substeps, gravity, damping, collision epsilon, player tuning.
-/// See docs/physics-contract.md for the changelog.
+/// See 1—Documentation/v1/physics-contract.md for the changelog.
 inline constexpr int PHYSICS_VERSION = 1;
 
 /// Physics runs at a fixed rate. Not a setting; a contract term (doc 4.2).
