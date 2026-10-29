@@ -1,5 +1,7 @@
 # Physics Puzzle Platformer
 
+[![CI](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/actions/workflows/ci.yml/badge.svg)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/actions/workflows/ci.yml)
+
 A 2D puzzle platformer built on a custom Verlet soft-body solver: a rigid
 player pushing, dragging, squeezing and standing on deformable blobs. Targets
 full gamepad support, Steam achievements, and 40 hand-authored levels.
@@ -7,7 +9,7 @@ full gamepad support, Steam achievements, and 40 hand-authored levels.
 > **Status.** v1 ships the solver, the game layer, tooling and **5 levels**,
 > each with a recorded solution that CI replays bit-for-bit. The path to 40
 > levels (and why level authoring is the real cost) is in
-> [`docs/design.md`](docs/design.md) §3.
+> [`1—Documentation/design.md`](1—Documentation/design.md) §3.
 
 ```
  solver/  (deterministic Verlet soft bodies, engine-free)
@@ -38,17 +40,17 @@ CI runs the same steps on every push and uploads an SVG render of each level
 .
 ├── README.md          ← you are here
 ├── .github/workflows/ ← CI: build, tests, replay suite, level renders, g++/clang++
-├── docs/
+├── 1—Documentation/   ← all documentation (index in its README)
 │   ├── design.md      ← full design guide (the spec code comments cite)
-│   └── design.pdf     ← same guide, PDF
+│   ├── design.pdf     ← same guide, PDF
+│   └── v1/            physics contract, determinism, level guidelines, spec errata
 └── v1/                ← first implementation
     ├── solver/        Verlet soft-body solver + tests
     ├── game/          player, level loading, scripting, replay
     ├── godot/         Godot 4 GDExtension project
     ├── levels/        5 levels (JSON) + scripted solutions
     ├── replays/       recorded replays checked in CI
-    ├── tools/         pppsim, SVG renderer, replay runner
-    └── docs/          physics contract, determinism, level guidelines, spec errata
+    └── tools/         pppsim, SVG renderer, replay runner
 ```
 
 Each `vN/` directory is a self-contained iteration. Start with
@@ -61,3 +63,31 @@ Each `vN/` directory is a self-contained iteration. Start with
 | [v1](v1/) | Deterministic soft-body solver, game layer, Godot binding, tooling, 5 levels with CI-verified replays | — |
 
 Add a row per version as new iterations land.
+
+<!-- project-metrics:start -->
+## Project Metrics
+
+[![Stars](https://img.shields.io/github/stars/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/stargazers) [![Forks](https://img.shields.io/github/forks/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/forks) [![Open issues](https://img.shields.io/github/issues/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/issues) [![Last commit](https://img.shields.io/github/last-commit/syedjafri06193/Physics-Puzzle-Platformer-proj/improvements?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/commits/improvements) [![Commits](https://img.shields.io/github/commit-activity/t/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/commits/improvements) [![Top language](https://img.shields.io/github/languages/top/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj) [![Repo size](https://img.shields.io/github/repo-size/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj)
+
+### Code
+
+| Metric | Value |
+|---|---|
+| Lines of code | 4,373 |
+| Source files | 31 |
+| Tracked files | 63 |
+| Documentation | 9 Markdown files (15,052 words), 1 PDF |
+| Commits | 9 |
+| Contributors | 1 |
+| Active | 2026-09-11 → 2026-10-28 |
+
+| Language | Lines | Share |
+|---|---:|---:|
+| C++ | 3,406 | 77.9% |
+| C | 666 | 15.2% |
+| GDScript | 190 | 4.3% |
+| Python | 111 | 2.5% |
+| CMake | 0 | 0.0% |
+
+<sub>Code stats as of 2026-10-28, counted with pygount (comments and blank lines excluded). Badges update live.</sub>
+<!-- project-metrics:end -->

@@ -3,8 +3,8 @@
 A 2D puzzle platformer built on a custom Verlet soft-body solver: a rigid
 player pushing, dragging, squeezing and standing on deformable blobs.
 
-The implementation of the design in [`../docs/design.md`](../docs/design.md).
-Where this deviates from that document, [`docs/notes-on-the-spec.md`](docs/notes-on-the-spec.md)
+The implementation of the design in [`../1—Documentation/design.md`](../1—Documentation/design.md).
+Where this deviates from that document, [`../1—Documentation/v1/notes-on-the-spec.md`](../1—Documentation/v1/notes-on-the-spec.md)
 says where and why — including one place the document's reference
 implementation injects energy and cannot settle.
 
@@ -55,13 +55,13 @@ script file is a decision the regression suite silently stops covering.
 
 **Determinism.** Fixed 120 Hz timestep, fixed constraint order, no hash-map
 iteration, seeded RNG, strict floating-point flags. Same machine, same
-build, bit-identical results. [`docs/determinism.md`](docs/determinism.md).
+build, bit-identical results. [`../1—Documentation/v1/determinism.md`](../1—Documentation/v1/determinism.md).
 
 **The physics contract.** Every number that changes the simulation lives in
 one versioned struct with a hash, and every replay stores the hash it was
 recorded under. Change the physics and CI tells you which levels broke
 instead of you finding out from a playtester six weeks later.
-[`docs/physics-contract.md`](docs/physics-contract.md).
+[`../1—Documentation/v1/physics-contract.md`](../1—Documentation/v1/physics-contract.md).
 
 Together they make the replay suite possible, and the replay suite is what
 makes the project survivable at the ~120 levels the design projects. It
@@ -140,5 +140,5 @@ and all of the game logic — is covered by the 69 tests and the replay suite.
 Also not done, from the design's later milestones: external playtesting
 (§9.4, and the design is right that it is mandatory and right that it is the
 step solo developers skip), a Deck hardware pass (§10.4), and the Steam
-surface beyond the code in `steam.gd`. [`docs/deck-checklist.md`](docs/deck-checklist.md)
+surface beyond the code in `steam.gd`. [`../1—Documentation/v1/deck-checklist.md`](../1—Documentation/v1/deck-checklist.md)
 tracks what remains.
