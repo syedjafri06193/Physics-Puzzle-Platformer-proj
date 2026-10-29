@@ -63,3 +63,31 @@ Each `vN/` directory is a self-contained iteration. Start with
 | [v1](v1/) | Deterministic soft-body solver, game layer, Godot binding, tooling, 5 levels with CI-verified replays | — |
 
 Add a row per version as new iterations land.
+
+<!-- project-metrics:start -->
+## Project Metrics
+
+[![Stars](https://img.shields.io/github/stars/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/stargazers) [![Forks](https://img.shields.io/github/forks/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/forks) [![Open issues](https://img.shields.io/github/issues/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/issues) [![Last commit](https://img.shields.io/github/last-commit/syedjafri06193/Physics-Puzzle-Platformer-proj/improvements?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/commits/improvements) [![Commits](https://img.shields.io/github/commit-activity/t/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj/commits/improvements) [![Top language](https://img.shields.io/github/languages/top/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj) [![Repo size](https://img.shields.io/github/repo-size/syedjafri06193/Physics-Puzzle-Platformer-proj?style=flat-square)](https://github.com/syedjafri06193/Physics-Puzzle-Platformer-proj)
+
+### Code
+
+| Metric | Value |
+|---|---|
+| Lines of code | 4,373 |
+| Source files | 31 |
+| Tracked files | 63 |
+| Documentation | 9 Markdown files (15,052 words), 1 PDF |
+| Commits | 9 |
+| Contributors | 1 |
+| Active | 2026-09-11 → 2026-10-28 |
+
+| Language | Lines | Share |
+|---|---:|---:|
+| C++ | 3,406 | 77.9% |
+| C | 666 | 15.2% |
+| GDScript | 190 | 4.3% |
+| Python | 111 | 2.5% |
+| CMake | 0 | 0.0% |
+
+<sub>Code stats as of 2026-10-28, counted with pygount (comments and blank lines excluded). Badges update live.</sub>
+<!-- project-metrics:end -->
